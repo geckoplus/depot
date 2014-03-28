@@ -1,0 +1,15 @@
+<h1>Editing cart</h1>
+
+<ul>
+  <% @cart.line_items.each do |item| %>
+    <li><%= item.product.title %><%= link_to ' Edit ', edit_line_item_path(item) %>
+    <%= link_to ' Destroy ', item, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+   
+    
+    <% end %>
+</ul>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @cart %> |
+<%= link_to 'Back', carts_path %>
